@@ -50,37 +50,58 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
     rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-  <div class="toolbar">
-    <button type="button" onclick="window.print()">🖨️ In / Lưu PDF</button>
+  <div class="toolbar toolbar-compact">
+    <div class="toolbar-group">
+      <button type="button" class="toolbar-btn icon-only" onclick="window.print()" aria-label="In / Lưu PDF" title="In / Lưu PDF" data-tooltip="In / Lưu PDF">
+        <i class="fa-solid fa-print" aria-hidden="true"></i>
+        <span>In / Lưu PDF</span>
+      </button>
 
-    <div class="share-dropdown" style="display:inline-block; position:relative;">
-      <button type="button" id="shareToggle" class="secondary" aria-haspopup="true" aria-expanded="false">📤 Chia sẻ ▾</button>
-      <div id="shareMenu" class="share-menu" role="menu" aria-hidden="true" style="display:none; position:absolute; left:0; top:100%; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.08); padding:6px; border-radius:6px; z-index:100;">
-        <button type="button" onclick="sharePage()">Chia sẻ (thiết bị)</button>
-        <button type="button" onclick="shareTo('facebook')">Facebook</button>
-        <button type="button" onclick="shareTo('twitter')">Twitter</button>
-        <button type="button" onclick="shareTo('linkedin')">LinkedIn</button>
-        <button type="button" onclick="shareTo('whatsapp')">WhatsApp</button>
-        <button type="button" onclick="shareTo('telegram')">Telegram</button>
-        <button type="button" onclick="shareTo('mailto')">Email</button>
+      <div class="share-dropdown">
+        <button type="button" id="shareToggle" class="toolbar-btn secondary icon-only has-caret" aria-haspopup="true" aria-expanded="false" aria-label="Chia sẻ" title="Chia sẻ" data-tooltip="Chia sẻ">
+          <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+          <span>Chia sẻ</span>
+          <i class="fa-solid fa-chevron-down caret-icon" aria-hidden="true"></i>
+        </button>
+        <div id="shareMenu" class="share-menu" role="menu" aria-hidden="true">
+          <button type="button" onclick="sharePage()"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i><span>Chia sẻ nhanh</span></button>
+          <button type="button" onclick="shareTo('facebook')"><i class="fa-brands fa-facebook-f" aria-hidden="true"></i><span>Facebook</span></button>
+          <button type="button" onclick="shareTo('twitter')"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i><span>X (Twitter)</span></button>
+          <button type="button" onclick="shareTo('linkedin')"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span></button>
+          <button type="button" onclick="shareTo('whatsapp')"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>WhatsApp</span></button>
+          <button type="button" onclick="shareTo('telegram')"><i class="fa-brands fa-telegram" aria-hidden="true"></i><span>Telegram</span></button>
+          <button type="button" onclick="shareTo('mailto')"><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>Email</span></button>
+        </div>
       </div>
+
+      <label class="upload-logo-btn icon-only" for="uploadLogoInput" aria-label="Chọn logo" title="Chọn logo" data-tooltip="Chọn logo"><i class="fa-regular fa-image" aria-hidden="true"></i><span>Chọn logo</span><input id="uploadLogoInput" type="file" accept="image/*" onchange="loadLogo(event)" /></label>
     </div>
 
-    <label class="upload-logo-btn">🖼️ Chọn logo<input type="file" accept="image/*" onchange="loadLogo(event)" /></label>
-    <button type="button" class="secondary" onclick="resetSample()">↩️ Khôi phục dữ liệu mẫu</button>
-    <button type="button" class="secondary" onclick="saveToJson()">💾 Lưu JSON</button>
-    <button type="button" class="secondary" onclick="document.getElementById('importJsonInput').click()">📥 Nhập JSON</button>
+    <div class="toolbar-group">
+      <button type="button" class="toolbar-btn secondary icon-only" onclick="resetSample()" aria-label="Khôi phục dữ liệu mẫu" title="Khôi phục dữ liệu mẫu" data-tooltip="Khôi phục dữ liệu mẫu"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i><span>Khôi phục dữ liệu mẫu</span></button>
+      <button type="button" class="toolbar-btn secondary icon-only" onclick="saveToJson()" aria-label="Lưu JSON" title="Lưu JSON" data-tooltip="Lưu JSON"><i class="fa-regular fa-floppy-disk" aria-hidden="true"></i><span>Lưu JSON</span></button>
+      <button type="button" class="toolbar-btn secondary icon-only" onclick="document.getElementById('importJsonInput').click()" aria-label="Nhập JSON" title="Nhập JSON" data-tooltip="Nhập JSON"><i class="fa-solid fa-file-import" aria-hidden="true"></i><span>Nhập JSON</span></button>
+    </div>
+
+    <div class="toolbar-group toolbar-group-samples">
+      <label class="toolbar-field icon-only" for="sampleSelect" title="Mẫu dữ liệu" data-tooltip="Mẫu dữ liệu"><i class="fa-regular fa-folder-open" aria-hidden="true"></i><span>Mẫu dữ liệu</span></label>
+      <select id="sampleSelect" class="toolbar-select" aria-label="Mẫu dữ liệu" title="Mẫu dữ liệu"></select>
+      <button type="button" class="toolbar-btn secondary icon-only" onclick="previewSample()" aria-label="Xem trước mẫu" title="Xem trước mẫu" data-tooltip="Xem trước mẫu"><i class="fa-regular fa-eye" aria-hidden="true"></i><span>Xem trước</span></button>
+      <button type="button" class="toolbar-btn secondary icon-only" onclick="applySample()" aria-label="Áp dụng mẫu" title="Áp dụng mẫu" data-tooltip="Áp dụng mẫu"><i class="fa-solid fa-check" aria-hidden="true"></i><span>Áp dụng mẫu</span></button>
+    </div>
+
+    <div class="toolbar-group">
+      <button type="button" class="toolbar-btn danger icon-only" onclick="clearForm()" aria-label="Xóa dữ liệu nhập" title="Xóa dữ liệu nhập" data-tooltip="Xóa dữ liệu nhập"><i class="fa-solid fa-trash-can" aria-hidden="true"></i><span>Xóa dữ liệu nhập</span></button>
+    </div>
+
     <input type="file" id="importJsonInput" accept="application/json" style="display:none" />
-
-    <select id="sampleSelect" style="margin-left:8px"></select>
-    <button type="button" class="secondary" onclick="previewSample()">Xem trước</button>
-    <button type="button" class="secondary" onclick="applySample()">Áp dụng mẫu</button>
-
-    <button type="button" class="danger" onclick="clearForm()">🧹 Xóa dữ liệu nhập</button>
   </div>
 
   <div class="hint">

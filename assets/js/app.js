@@ -291,14 +291,14 @@ document.addEventListener('DOMContentLoaded', function () {
   if (shareToggle && shareMenu) {
     shareToggle.addEventListener('click', function (e) {
       e.stopPropagation();
-      const visible = shareMenu.style.display !== 'none';
-      shareMenu.style.display = visible ? 'none' : 'block';
-      shareToggle.setAttribute('aria-expanded', String(!visible));
-      shareMenu.setAttribute('aria-hidden', String(visible));
+      const isHidden = window.getComputedStyle(shareMenu).display === 'none';
+      shareMenu.style.display = isHidden ? 'block' : 'none';
+      shareToggle.setAttribute('aria-expanded', String(isHidden));
+      shareMenu.setAttribute('aria-hidden', String(!isHidden));
     });
 
     document.addEventListener('click', function (e) {
-      if (!shareMenu.contains(e.target) && e.target !== shareToggle) {
+      if (!shareMenu.contains(e.target) && !shareToggle.contains(e.target)) {
         shareMenu.style.display = 'none';
         shareToggle.setAttribute('aria-expanded', 'false');
         shareMenu.setAttribute('aria-hidden', 'true');
