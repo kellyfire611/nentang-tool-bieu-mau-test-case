@@ -1,0 +1,25 @@
+{
+  "general": {
+    "testCaseId": "TC_LOGIN_001",
+    "testCaseName": "Kiểm tra đăng nhập thành công",
+    "module": "Đăng nhập",
+    "author": "Người viết A",
+    "createdDate": "22/05/2026",
+    "priority": "Cao",
+    "testType": "Functional Test",
+    "environment": "Web / Chrome / Staging"
+  },
+  "meta": { "docId": "QA-TC-LOGIN-001", "version": "v1.0", "date": "22/05/2026" },
+  "brand": { "company": "CÔNG TY A", "address": "123 Đường A, TP", "phone": "0123 456 789", "email": "contact@companya.vn", "website": "https://companya.vn" },
+  "title": "Kiểm tra đăng nhập thành công",
+  "subtitle": "Test case kiểm tra đăng nhập với tài khoản hợp lệ",
+  "preconditions": ["Người dùng đã có tài khoản", "Trang đăng nhập hoạt động"],
+  "testData": [ {"label":"Email","value":"student01@example.com"}, {"label":"Mật khẩu","value":"123456@Abc"} ],
+  "steps": [ {"step":"1","action":"Truy cập trang đăng nhập","expected":"Trang đăng nhập hiển thị"}, {"step":"2","action":"Nhập email","expected":"Email được nhập"}, {"step":"3","action":"Nhập mật khẩu","expected":"Mật khẩu được nhập"}, {"step":"4","action":"Nhấn Đăng nhập","expected":"Chuyển đến Dashboard"} ],
+  "expectedOverall": ["Đăng nhập thành công","Chuyển hướng đến Dashboard"],
+  "actualResult": [],
+  "notes": ["Kiểm tra trên nhiều trình duyệt"],
+  "status": "Not Run",
+  "severity": "Medium",
+  "footer": "Tài liệu mẫu cho đào tạo"
+}

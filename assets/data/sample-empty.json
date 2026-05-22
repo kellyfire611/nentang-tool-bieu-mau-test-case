@@ -1,0 +1,25 @@
+{
+  "general": {
+    "testCaseId": "TC_EMPTY_001",
+    "testCaseName": "Mẫu trống",
+    "module": "",
+    "author": "",
+    "createdDate": "22/05/2026",
+    "priority": "Low",
+    "testType": "",
+    "environment": ""
+  },
+  "meta": { "docId": "QA-TC-EMPTY-001", "version": "v1.0", "date": "22/05/2026" },
+  "brand": { "company": "CÔNG TY MẪU", "address": "", "phone": "", "email": "", "website": "" },
+  "title": "Mẫu trống",
+  "subtitle": "Mẫu test case trống để sinh dữ liệu",
+  "preconditions": [],
+  "testData": [],
+  "steps": [],
+  "expectedOverall": [],
+  "actualResult": [],
+  "notes": [],
+  "status": "Not Run",
+  "severity": "Low",
+  "footer": ""
+}

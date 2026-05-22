@@ -5,6 +5,46 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mẫu Test Case Đầy Đủ</title>
+  <meta name="description" content="Mẫu Test Case Đầy Đủ — template cho kiểm thử phần mềm. Bản mẫu có thể in/ xuất PDF, kèm hướng dẫn viết test case, dữ liệu test, các bước và kết quả mong đợi." />
+  <meta name="keywords" content="mẫu test case, test case, kiểm thử phần mềm, QA, template test case, tài liệu kiểm thử, in PDF" />
+  <meta name="author" content="Dương Nguyễn Phú Cường" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nentang.vn/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mẫu Test Case Đầy Đủ — Nentang" />
+  <meta property="og:description" content="Mẫu Test Case Đầy Đủ — template cho kiểm thử phần mềm, in và xuất PDF. Hướng dẫn chi tiết cho người viết test case." />
+  <meta property="og:url" content="https://nentang.vn/" />
+  <meta property="og:site_name" content="Nentang" />
+  <meta property="og:image" content="https://nentang.vn/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mẫu Test Case Đầy Đủ — Nentang" />
+  <meta name="twitter:description" content="Mẫu Test Case Đầy Đủ — template cho kiểm thử phần mềm, kèm hướng dẫn, dữ liệu test và bước thực hiện." />
+  <meta name="twitter:creator" content="Dương Nguyễn Phú Cường" />
+  <meta name="twitter:image" content="https://nentang.vn/og-image.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Nentang",
+    "url": "https://nentang.vn",
+    "description": "Mẫu Test Case Đầy Đủ — template cho kiểm thử phần mềm, in/ xuất PDF và hướng dẫn viết test case.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Nentang",
+      "url": "https://nentang.vn"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Dương Nguyễn Phú Cường"
+    }
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -16,9 +56,30 @@
 <body>
   <div class="toolbar">
     <button type="button" onclick="window.print()">🖨️ In / Lưu PDF</button>
-    <label class="upload-logo-btn">🖼️ Chọn logo<input type="file" accept="image/*"
-        onchange="loadLogo(event)" /></label>
+
+    <div class="share-dropdown" style="display:inline-block; position:relative;">
+      <button type="button" id="shareToggle" class="secondary" aria-haspopup="true" aria-expanded="false">📤 Chia sẻ ▾</button>
+      <div id="shareMenu" class="share-menu" role="menu" aria-hidden="true" style="display:none; position:absolute; left:0; top:100%; background:#fff; box-shadow:0 4px 12px rgba(0,0,0,0.08); padding:6px; border-radius:6px; z-index:100;">
+        <button type="button" onclick="sharePage()">Chia sẻ (thiết bị)</button>
+        <button type="button" onclick="shareTo('facebook')">Facebook</button>
+        <button type="button" onclick="shareTo('twitter')">Twitter</button>
+        <button type="button" onclick="shareTo('linkedin')">LinkedIn</button>
+        <button type="button" onclick="shareTo('whatsapp')">WhatsApp</button>
+        <button type="button" onclick="shareTo('telegram')">Telegram</button>
+        <button type="button" onclick="shareTo('mailto')">Email</button>
+      </div>
+    </div>
+
+    <label class="upload-logo-btn">🖼️ Chọn logo<input type="file" accept="image/*" onchange="loadLogo(event)" /></label>
     <button type="button" class="secondary" onclick="resetSample()">↩️ Khôi phục dữ liệu mẫu</button>
+    <button type="button" class="secondary" onclick="saveToJson()">💾 Lưu JSON</button>
+    <button type="button" class="secondary" onclick="document.getElementById('importJsonInput').click()">📥 Nhập JSON</button>
+    <input type="file" id="importJsonInput" accept="application/json" style="display:none" />
+
+    <select id="sampleSelect" style="margin-left:8px"></select>
+    <button type="button" class="secondary" onclick="previewSample()">Xem trước</button>
+    <button type="button" class="secondary" onclick="applySample()">Áp dụng mẫu</button>
+
     <button type="button" class="danger" onclick="clearForm()">🧹 Xóa dữ liệu nhập</button>
   </div>
 
@@ -98,12 +159,23 @@
         <tr>
           <td class="label">Loại kiểm thử:</td>
           <td>
-            <div class="input-line" contenteditable="true" data-sample="Functional Test">Functional Test</div>
+            <select class="select-field testtype-select" data-sample="Functional Test" onchange="updateSelectColor(this); updateTestTypeDescription(this)">
+              <option value="Functional Test" selected>Functional Test</option>
+              <option value="Regression Test">Regression Test</option>
+              <option value="Integration Test">Integration Test</option>
+              <option value="Performance Test">Performance Test</option>
+              <option value="Security Test">Security Test</option>
+              <option value="Usability Test">Usability Test</option>
+              <option value="Acceptance (UAT)">Acceptance (UAT)</option>
+              <option value="Smoke Test">Smoke Test</option>
+              <option value="Sanity Test">Sanity Test</option>
+              <option value="Exploratory Test">Exploratory Test</option>
+            </select>
+            <div id="testTypeHelp" class="field-help" style="font-size:0.9rem; color:#444; margin-top:6px;">Kiểm thử chức năng — xác minh từng chức năng hoạt động theo yêu cầu.</div>
           </td>
           <td class="label">Môi trường test:</td>
           <td>
-            <div class="input-line" contenteditable="true" data-sample="Web / Chrome / Staging">Web / Chrome / Staging
-            </div>
+            <div class="input-line" contenteditable="true" data-sample="Web / Chrome / Staging">Web / Chrome / Staging</div>
           </td>
         </tr>
       </table>
@@ -349,6 +421,19 @@
   </main>
 
   <script src="assets/js/app.js"></script>
+
+  <!-- Sample preview modal -->
+  <div id="samplePreviewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); align-items:center; justify-content:center; z-index:200;">
+    <div style="background:#fff; max-width:900px; width:90%; max-height:80%; overflow:auto; border-radius:8px; padding:16px; position:relative;">
+      <button style="position:absolute; right:12px; top:12px;" onclick="closeSamplePreview()">✕</button>
+      <h3>Mẫu JSON — Xem trước</h3>
+      <pre id="samplePreviewPre" style="white-space:pre-wrap; background:#f7f7f7; padding:12px; border-radius:6px; max-height:60vh; overflow:auto;"></pre>
+      <div style="margin-top:12px; text-align:right;">
+        <button onclick="importSampleFromPreview()">Nhập mẫu vào form</button>
+        <button onclick="closeSamplePreview()">Đóng</button>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

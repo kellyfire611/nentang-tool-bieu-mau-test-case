@@ -1,0 +1,25 @@
+{
+  "general": {
+    "testCaseId": "TC_REG_001",
+    "testCaseName": "Kiểm tra đăng ký tài khoản",
+    "module": "Đăng ký",
+    "author": "Người viết B",
+    "createdDate": "22/05/2026",
+    "priority": "Cao",
+    "testType": "Functional Test",
+    "environment": "Web / Chrome / Staging"
+  },
+  "meta": { "docId": "QA-TC-REG-001", "version": "v1.0", "date": "22/05/2026" },
+  "brand": { "company": "TRUNG TÂM ĐÀO TẠO B", "address": "45 Phố B, TP", "phone": "0987 654 321", "email": "info@trainb.vn", "website": "https://trainb.vn" },
+  "title": "Kiểm tra đăng ký tài khoản",
+  "subtitle": "Test case kiểm tra luồng đăng ký người dùng mới",
+  "preconditions": ["Form đăng ký hiển thị", "Email chưa tồn tại"],
+  "testData": [ {"label":"Họ và tên","value":"Nguyễn Văn B"}, {"label":"Email","value":"newuser@example.com"}, {"label":"Mật khẩu","value":"Password@123"} ],
+  "steps": [ {"step":"1","action":"Truy cập trang đăng ký","expected":"Form đăng ký hiển thị"}, {"step":"2","action":"Nhập thông tin hợp lệ","expected":"Dữ liệu được chấp nhận"}, {"step":"3","action":"Nhấn Đăng ký","expected":"Tạo tài khoản và chuyển hướng"} ],
+  "expectedOverall": ["Tạo tài khoản thành công","Email xác thực được gửi"],
+  "actualResult": [],
+  "notes": ["Kiểm tra ràng buộc mật khẩu"],
+  "status": "Not Run",
+  "severity": "High",
+  "footer": "Mẫu test case đăng ký"
+}

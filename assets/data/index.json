@@ -1,0 +1,5 @@
+[
+  { "name": "Mẫu: Đăng nhập - Test Case", "file": "assets/data/sample-login.json" },
+  { "name": "Mẫu: Đăng ký - Test Case", "file": "assets/data/sample-registration.json" },
+  { "name": "Mẫu: Kiểm tra rỗng - Test Case", "file": "assets/data/sample-empty.json" }
+]
