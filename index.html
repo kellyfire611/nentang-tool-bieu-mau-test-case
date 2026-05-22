@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mẫu Test Case Đầy Đủ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+  <div class="toolbar">
+    <button type="button" onclick="window.print()">🖨️ In / Lưu PDF</button>
+    <label class="upload-logo-btn">🖼️ Chọn logo<input type="file" accept="image/*"
+        onchange="loadLogo(event)" /></label>
+    <button type="button" class="secondary" onclick="resetSample()">↩️ Khôi phục dữ liệu mẫu</button>
+    <button type="button" class="danger" onclick="clearForm()">🧹 Xóa dữ liệu nhập</button>
+  </div>
+
+  <div class="hint">
+    Gợi ý: nhập trực tiếp vào các ô như Word. Các mục có nút + / - có thể thêm hoặc xóa dòng trước khi in.
+  </div>
+
+  <main class="page" id="testcaseForm">
+    <header class="brand-header">
+      <div class="brand-logo-box" id="brandLogoBox">
+        <img id="brandLogo" alt="Logo công ty" />
+        <span class="logo-placeholder">Logo<br />công ty</span>
+      </div>
+      <div>
+        <div class="brand-company" contenteditable="true" data-sample="CÔNG TY / TRUNG TÂM CỦA BẠN">CÔNG TY / TRUNG TÂM
+          CỦA BẠN</div>
+        <div class="brand-grid">
+          <div class="brand-item"><span class="brand-label">Địa chỉ:</span><span class="brand-value"
+              contenteditable="true" data-sample="Nhập địa chỉ công ty / trung tâm">Nhập địa chỉ công ty / trung
+              tâm</span></div>
+          <div class="brand-item"><span class="brand-label">Điện thoại:</span><span class="brand-value"
+              contenteditable="true" data-sample="0292 xxx xxxx">0292 xxx xxxx</span></div>
+          <div class="brand-item"><span class="brand-label">Email:</span><span class="brand-value"
+              contenteditable="true" data-sample="contact@example.com">contact@example.com</span></div>
+          <div class="brand-item"><span class="brand-label">Website:</span><span class="brand-value"
+              contenteditable="true" data-sample="https://example.com">https://example.com</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="document-meta">
+      <div class="meta-cell"><strong>Mã tài liệu:</strong> <span contenteditable="true"
+          data-sample="QA-TC-001">QA-TC-001</span></div>
+      <div class="meta-cell"><strong>Phiên bản:</strong> <span contenteditable="true" data-sample="v1.0">v1.0</span>
+      </div>
+      <div class="meta-cell"><strong>Ngày ban hành:</strong> <span contenteditable="true"
+          data-sample="21/05/2026">21/05/2026</span></div>
+    </div>
+
+    <h1 contenteditable="true">MẪU TEST CASE ĐẦY ĐỦ</h1>
+    <div class="subtitle" contenteditable="true">Ví dụ minh họa cho học viên cách viết test case chính xác</div>
+
+    <section class="section">
+      <div class="section-title">1. Thông tin chung</div>
+      <table>
+        <tr>
+          <td class="label">Test Case ID:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="TC_LOGIN_001">TC_LOGIN_001</div>
+          </td>
+          <td class="label">Tên Test Case:</td>
+          <td>
+            <div class="input-line" contenteditable="true"
+              data-sample="Kiểm tra đăng nhập thành công với tài khoản hợp lệ">Kiểm tra đăng nhập thành công với tài khoản hợp lệ</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Module:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="Đăng nhập">Đăng nhập</div>
+          </td>
+          <td class="label">Người viết:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="Nguyễn Văn A">Nguyễn Văn A</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Ngày tạo:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="21/05/2026">21/05/2026</div>
+          </td>
+          <td class="label">Mức ưu tiên:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="Cao">Cao</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Loại kiểm thử:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="Functional Test">Functional Test</div>
+          </td>
+          <td class="label">Môi trường test:</td>
+          <td>
+            <div class="input-line" contenteditable="true" data-sample="Web / Chrome / Staging">Web / Chrome / Staging
+            </div>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title">2. Mục tiêu</div>
+      <table>
+        <tr>
+          <td class="label-wide">Mục tiêu:</td>
+          <td>
+            <div class="input-line" contenteditable="true"
+              data-sample="Xác minh người dùng có thể đăng nhập thành công khi nhập đúng email và mật khẩu.">Xác minh người dùng có thể đăng nhập thành công khi nhập đúng email và mật khẩu.</div>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>3. Điều kiện tiên quyết</span><span class="section-actions"><button
+            class="mini-btn" type="button" onclick="addListItem('preconditions')">+</button></span></div>
+      <div class="box" id="preconditions">
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Người dùng đã có tài khoản hợp lệ trên hệ thống.">Người dùng đã có tài khoản hợp lệ trên hệ thống.</div><button class="row-remove" type="button"
+            onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Trang đăng nhập hoạt động bình thường.">Trang đăng nhập hoạt động bình thường.</div><button class="row-remove" type="button"
+            onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Kết nối internet ổn định.">Kết nối internet ổn định.</div><button class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>4. Dữ liệu test</span><span class="section-actions"><button class="mini-btn"
+            type="button" onclick="addDataRow()">+</button></span></div>
+      <table class="data-table" id="testDataTable">
+        <tbody>
+          <tr>
+            <td class="label-wide">
+              <div class="input-line" contenteditable="true" data-sample="Email:">Email:</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="student01@example.com">student01@example.com</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeTableRow(this)">−</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="label-wide">
+              <div class="input-line" contenteditable="true" data-sample="Mật khẩu:">Mật khẩu:</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="123456@Abc">123456@Abc</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeTableRow(this)">−</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>5. Các bước thực hiện</span><span class="section-actions"><button
+            class="mini-btn" type="button" onclick="addStepRow()">+</button></span></div>
+      <table class="steps-table" id="stepsTable">
+        <thead>
+          <tr>
+            <th class="step-no" style="width: 60px;">Bước</th>
+            <th class="action-col">Hành động</th>
+            <th>Kết quả mong đợi</th>
+            <th class="remove-cell no-print" style="width: 60px;">Xóa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="step-no">1</td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="Truy cập trang đăng nhập">Truy cập trang đăng nhập</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true"
+                data-sample='Trang đăng nhập hiển thị đầy đủ các trường Email, Mật khẩu và nút "Đăng nhập".'>Trang đăng nhập hiển thị đầy đủ các trường Email, Mật khẩu và nút "Đăng nhập".</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeStepRow(this)">−</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="step-no">2</td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample='Nhập email "student01@example.com"'>Nhập email "student01@example.com"</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="Giá trị email được nhập đúng vào ô Email.">Giá trị email được nhập đúng vào ô Email.</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeStepRow(this)">−</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="step-no">3</td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample='Nhập mật khẩu "123456@Abc"'>Nhập mật khẩu "123456@Abc"</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true"
+                data-sample="Giá trị mật khẩu được nhập đúng và được che ký tự.">Giá trị mật khẩu được nhập đúng và được che ký tự.</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeStepRow(this)">−</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="step-no">4</td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample='Nhấn nút "Đăng nhập"'>Nhấn nút "Đăng nhập"
+              </div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="Hệ thống gửi yêu cầu đăng nhập.">Hệ thống gửi yêu cầu đăng nhập.</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeStepRow(this)">−</button>
+            </td>
+          </tr>
+          <tr>
+            <td class="step-no">5</td>
+            <td>
+              <div class="input-line" contenteditable="true" data-sample="Quan sát kết quả sau khi đăng nhập">Quan sát kết quả sau khi đăng nhập</div>
+            </td>
+            <td>
+              <div class="input-line" contenteditable="true"
+                data-sample="Người dùng được chuyển đến trang Dashboard và hiển thị tên người dùng.">Người dùng được chuyển đến trang Dashboard và hiển thị tên người dùng.</div>
+            </td>
+            <td class="remove-cell"><button class="row-remove" type="button" onclick="removeStepRow(this)">−</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>6. Kết quả mong đợi tổng thể</span><span class="section-actions"><button
+            class="mini-btn" type="button" onclick="addListItem('expectedOverall')">+</button></span></div>
+      <div class="box" id="expectedOverall">
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Hệ thống đăng nhập thành công.">Hệ thống đăng nhập thành công.</div><button class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Chuyển hướng đến Dashboard.">Chuyển hướng đến Dashboard.</div><button class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Không hiển thị thông báo lỗi.">Không hiển thị thông báo lỗi.</div><button class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>7. Kết quả thực tế</span><span class="section-actions"><button class="mini-btn"
+            type="button" onclick="addListItem('actualResult')">+</button></span></div>
+      <div class="box" id="actualResult">
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Người dùng đăng nhập thành công.">Người dùng đăng nhập thành công.</div><button class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample="Hệ thống chuyển đúng đến Dashboard.">Hệ thống chuyển đúng đến Dashboard.</div><button class="row-remove" type="button"
+            onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true" data-sample='Hiển thị lời chào: "Xin chào, Student 01".'>Hiển thị lời chào: "Xin chào, Student 01".</div><button class="row-remove" type="button"
+            onclick="removeRow(this)">−</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">8. Trạng thái</div>
+      <table>
+        <tr>
+          <td class="label">Status:</td>
+          <td>
+            <select class="select-field status-select status-pass" data-sample="Pass"
+              onchange="updateSelectColor(this)">
+              <option value="Not Run">Not Run</option>
+              <option value="Pass" selected>Pass</option>
+              <option value="Fail">Fail</option>
+              <option value="Blocked">Blocked</option>
+              <option value="N/A">N/A</option>
+            </select>
+          </td>
+          <td class="label">Severity:</td>
+          <td>
+            <select class="select-field severity-select severity-medium" data-sample="Medium"
+              onchange="updateSelectColor(this)">
+              <option value="Low">Low</option>
+              <option value="Medium" selected>Medium</option>
+              <option value="High">High</option>
+              <option value="Critical">Critical</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><span>9. Ghi chú</span><span class="section-actions"><button class="mini-btn"
+            type="button" onclick="addListItem('notes')">+</button></span></div>
+      <div class="box" id="notes">
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true"
+            data-sample="Nếu sai email hoặc mật khẩu thì phải hiển thị thông báo lỗi phù hợp.">Nếu sai email hoặc mật khẩu thì phải hiển thị thông báo lỗi phù hợp.</div><button class="row-remove" type="button"
+            onclick="removeRow(this)">−</button>
+        </div>
+        <div class="list-row">
+          <div class="bullet">•</div>
+          <div class="input-line" contenteditable="true"
+            data-sample="Có thể tạo thêm test case cho đăng nhập thất bại, bỏ trống dữ liệu, email sai định dạng.">Có thể tạo thêm test case cho đăng nhập thất bại, bỏ trống dữ liệu, email sai định dạng.</div><button
+            class="row-remove" type="button" onclick="removeRow(this)">−</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer-note">
+      <span class="footer-icon">✓</span>
+      <span><strong>Lưu ý:</strong> <span contenteditable="true"
+          data-sample="Một test case tốt cần rõ ràng, có dữ liệu test, bước thực hiện, kết quả mong đợi và trạng thái.">Một test case tốt cần rõ ràng, có dữ liệu test, bước thực hiện, kết quả mong đợi và trạng thái.</span></span>
+    </div>
+
+    <footer class="brand-footer">
+      <div contenteditable="true" data-sample="Tài liệu dùng cho đào tạo kiểm thử phần mềm - Chỉ sử dụng nội bộ.">Tài liệu dùng cho đào tạo kiểm thử phần mềm - Chỉ sử dụng nội bộ.</div>
+      <div>BM-TEST-01</div>
+    </footer>
+  </main>
+
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
